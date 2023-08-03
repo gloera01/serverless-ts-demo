@@ -44,8 +44,6 @@ serverless offline
 
 - An AWS account should be created (IAM) with admin permissions
   - add access keys into secrets vault on github
-  - AKIAVCW6K6ZF26SZG24K
-  - dWCqWDRr5ktOoVtih7scKN5AuvYIOOPp2UnHJ3V4
 - Run tests
   - Only on PR for branches development and main
 - Merge feature branch and deploy
