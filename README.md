@@ -13,14 +13,16 @@ This template demonstrates how to make a simple HTTP API with Typescript running
 
 - Add a lambda with Authorizer
   - Source [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
-- Define CI/CD process
+- Configuration
+  - Add Eslint config (Pending)
+
+### Testing TODOS
+
 - Define Unit testing strategy
   - Test lambdas
     - Mock dependencies
   - Test services
     - Structure
-- Configuration
-  - Add Eslint config (Pending)
 
 ### Deployment
 
@@ -43,8 +45,18 @@ serverless offline
 ### CI/CD
 
 - An AWS account should be created (IAM) with admin permissions
-  - add access keys into secrets vault on github
-- Run tests
-  - Only on PR for branches development and main
-- Merge feature branch and deploy
-  - Only when tests has passed and PR is approved
+- Environments should be created on github
+  - add access keys from AWS admin user into secrets vault
+- Constraints
+  - Run tests
+    - Only on PR for branches development and main
+  - Merge feature branch and deploy
+    - Only when tests has passed and PR is approved
+- Handle multiple environments
+  - dev
+  - prod
+- Ignore tests folder to be deployed to AWS in order to save space
+- Configure API gateway
+  - domain name
+  - routes
+- Configure lambda name based on env
