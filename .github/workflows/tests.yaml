@@ -1,0 +1,25 @@
+name: Run unit tests
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches: [development, main]
+
+jobs:
+  run-tests:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - name: Run unit tests
+      run: npm run test:unit
