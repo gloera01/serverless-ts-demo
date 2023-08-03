@@ -1,4 +1,10 @@
 export const handler = async (event) => {
+  console.log("Hello world")
+  console.log('Aloha')
+
+  const exe = {}
+  var executable = "execute me"
+
   return {
     statusCode: 200,
     body: JSON.stringify(

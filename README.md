@@ -15,6 +15,13 @@ This template demonstrates how to make a simple HTTP API with Typescript running
   - Source [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
 - Define CI/CD process
 - Define Unit testing strategy
+  - Test lambdas
+    - Mock dependencies
+  - Test services
+    - Structure
+- Configuration
+  - Add Eslint config
+  - Add vscode config settings
 
 ### Deployment
 
