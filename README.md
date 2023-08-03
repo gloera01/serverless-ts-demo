@@ -20,8 +20,7 @@ This template demonstrates how to make a simple HTTP API with Typescript running
   - Test services
     - Structure
 - Configuration
-  - Add Eslint config
-  - Add vscode config settings
+  - Add Eslint config (Pending)
 
 ### Deployment
 
@@ -40,3 +39,14 @@ Alternatively, it is also possible to emulate API Gateway and Lambda locally. In
 ```
 serverless offline
 ```
+
+### CI/CD
+
+- An AWS account should be created (IAM) with admin permissions
+  - add access keys into secrets vault on github
+  - AKIAVCW6K6ZF26SZG24K
+  - dWCqWDRr5ktOoVtih7scKN5AuvYIOOPp2UnHJ3V4
+- Run tests
+  - Only on PR for branches development and main
+- Merge feature branch and deploy
+  - Only when tests has passed and PR is approved
