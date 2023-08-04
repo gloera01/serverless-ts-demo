@@ -11,7 +11,7 @@ on:
 env:
   feature/environment-config: feat
   main: prod
-  henv: ${{ env.${{ github.ref_name }} }}
+  henv: ${{ main }}
 
 jobs:
   run-tests:
