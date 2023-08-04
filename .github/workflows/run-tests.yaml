@@ -9,18 +9,14 @@ on:
     branches: [development, main]
 
 env:
-  development: dev
+  feature/environment-config: feat
   main: prod
-  # stage: ${{ env.${{ GITHUB_BASE_REF }} }}
-  branch: ${{ github.ref_name }}
+  henv: ${{ env.${{ github.ref_name }} }}
 
 jobs:
   run-tests:
     name: Build and deploy
     runs-on: ubuntu-latest
-    environment:
-      # name: env.${{ GITHUB_BASE_REF }}
-      name: dev
     strategy:
       matrix:
         node-version: [18.x]
@@ -34,4 +30,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo "Branch name is $branch"
+        echo "Result env is $henv"
