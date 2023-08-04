@@ -11,14 +11,15 @@ on:
 env:
   development: dev
   main: prod
-  stage: ${{ env.${{ GITHUB_BASE_REF }} }}
+  # stage: ${{ env.${{ GITHUB_BASE_REF }} }}
 
 jobs:
   run-tests:
     name: Build and deploy
     runs-on: ubuntu-latest
     environment:
-      name: ${{ env.stage }}
+      # name: env.${{ GITHUB_BASE_REF }}
+      name: dev
     strategy:
       matrix:
         node-version: [18.x]
@@ -32,4 +33,4 @@ jobs:
     - name: Run unit tests
       run: npm run test:unit
     - name: Log environment
-    - run: echo "Environment is $stage"
+    - run: echo "Environment"
