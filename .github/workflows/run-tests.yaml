@@ -15,7 +15,7 @@ env:
 jobs:
   run-tests:
     env:
-      henv: ${{ env.${{ github.ref_name }} }}
+      henv: ${{ env[${{ github.ref_name }}] }}
     name: Build and deploy
     runs-on: ubuntu-latest
     strategy:
