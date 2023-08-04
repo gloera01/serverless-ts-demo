@@ -12,6 +12,7 @@ env:
   development: dev
   main: prod
   # stage: ${{ env.${{ GITHUB_BASE_REF }} }}
+  branch: ${{ github.ref_name }}
 
 jobs:
   run-tests:
@@ -33,4 +34,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo "Branch name ${{ GITHUB_BASE_REF }}"
+        echo "Branch name is $branch"
