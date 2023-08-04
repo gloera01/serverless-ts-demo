@@ -11,10 +11,11 @@ on:
 env:
   feature/environment-config: feat
   main: prod
-  henv: ${{ main }}
 
 jobs:
   run-tests:
+    env:
+      henv: ${{ env.${{ github.ref_name }} }}
     name: Build and deploy
     runs-on: ubuntu-latest
     strategy:
