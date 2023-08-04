@@ -8,12 +8,17 @@ on:
     types: [opened, reopened]
     branches: [development, main]
 
+env:
+  development: dev
+  main: prod
+  stage: ${{ env.${{ GITHUB_BASE_REF }} }}
+
 jobs:
   run-tests:
     name: Build and deploy
     runs-on: ubuntu-latest
     environment:
-      name: development
+      name: ${{ env.stage }}
     strategy:
       matrix:
         node-version: [18.x]
@@ -26,3 +31,5 @@ jobs:
     - run: npm ci
     - name: Run unit tests
       run: npm run test:unit
+    - name: Log environment
+    - run: echo "Environment is: $stage"
