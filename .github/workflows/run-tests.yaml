@@ -33,4 +33,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo "Hello world"
+        echo "Branch name ${{ GITHUB_BASE_REF }}"
