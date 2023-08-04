@@ -47,6 +47,9 @@ serverless offline
 - An AWS account should be created (IAM) with admin permissions
 - Environments should be created on github
   - add access keys from AWS admin user into secrets vault
+- Branch protection should be added (disable merge)
+  - If comments are not resolved
+  - Build or tests fails
 - Constraints
   - Run tests
     - Only on PR for branches development and main

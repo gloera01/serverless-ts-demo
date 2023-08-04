@@ -9,6 +9,6 @@ describe('handlers/index', () => {
     const result = await indexHandler(event);
 
     // Assert
-    expect(result).toHaveProperty('status', 200);
+    expect(result).toHaveProperty('statusCode', 200);
   });
 });
