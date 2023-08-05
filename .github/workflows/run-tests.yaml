@@ -9,8 +9,9 @@ on:
     branches: [development, main]
 
 env:
-  development: feat
-  main: prod
+  # development: feat
+  # main: prod
+  branch: ${{ github.ref_name }}
 
 jobs:
   run-tests:
@@ -28,4 +29,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo 'Result mapping is ${{ env.main }}
+        echo 'Result mapping is ${{ env.branch }}
