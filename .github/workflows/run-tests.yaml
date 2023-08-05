@@ -30,4 +30,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      run: echo Result env mapping is ${{ env[${{ env.branch }}] }}
+      run: echo Result env mapping is ${{ env[ env.branch ] }}
