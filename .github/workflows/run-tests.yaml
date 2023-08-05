@@ -28,4 +28,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      run: echo 'Result mapping is ${{ env.branch }}
+      run: echo Result mapping is ${{ env.branch }}
