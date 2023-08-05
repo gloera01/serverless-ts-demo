@@ -12,6 +12,8 @@ env:
   # development: feat
   # main: prod
   branch: ${{ github.ref_name }}
+  feature/environment-config: dev
+  # branch: ${{ env }}
 
 jobs:
   run-tests:
@@ -28,4 +30,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      run: echo Result mapping is ${{ env.branch }}
+      run: echo Result env mapping is ${{ env[${{ env.branch }}] }}
