@@ -9,7 +9,7 @@ on:
     branches: [development, main]
 
 env:
-  feature/environment-config: feat
+  development: feat
   main: prod
 
 jobs:
@@ -30,4 +30,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo "Result env is $henv"
+        echo "Result mapping is $henv"
