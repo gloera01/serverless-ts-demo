@@ -19,8 +19,6 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-      env:
-        henv: ${{ env.main }}
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -30,4 +28,4 @@ jobs:
     - name: Run unit tests
       run: |
         npm run test:unit
-        echo "Result mapping is $henv"
+        echo 'Result mapping is ${{ env.main }}
