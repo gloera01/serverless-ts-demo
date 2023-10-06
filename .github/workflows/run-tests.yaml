@@ -11,7 +11,7 @@ on:
 env:
   development: development
   main: production
-  branch: ${{github.base_name, 'development'}}
+  branch: ${{github.base_name || 'development'}}
 
 jobs:
   run-tests:
