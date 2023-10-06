@@ -20,5 +20,8 @@
   "scripts": {
     "test:unit": "jest",
     "test:coverage": "jest --verbose --coverage=true"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
