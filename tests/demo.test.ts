@@ -11,4 +11,15 @@ describe('handlers/index', () => {
     // Assert
     expect(result).toHaveProperty('statusCode', 200);
   });
+
+  test('Secondary tst', async () => {
+    // Arrange
+    const event = {};
+
+    // Act
+    const result = await indexHandler(event);
+
+    // Assert
+    expect(result).toBeDefined();
+  });
 });
