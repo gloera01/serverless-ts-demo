@@ -30,4 +30,4 @@ jobs:
     - name: Run unit tests
       # run: npm run test:unit
       # run: echo Test if env assignation is fine. -> ${{ vars.STAGE }}
-      run: echo Test var. ${{ env['development]' }}
+      run: echo Test var. ${{ env['development'] }}
