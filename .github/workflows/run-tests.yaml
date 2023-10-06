@@ -11,7 +11,6 @@ on:
 env:
   development: development
   main: production
-  branch: ${{ github.base_ref || 'development' }}
   stage: ${{ github.base_ref == 'main' && 'production' || 'development' }}
 
 jobs:
@@ -20,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    # environment: ${{ env['development'] }}
+    environment: ${{ env.stage }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
@@ -30,5 +29,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      # run: echo Test if env assignation is fine. -> ${{ vars.STAGE }}
-      run: echo Test var. ${{ env.stage }} branch name is -> ${{ env.stage }}
+      run: echo Run Tests on -> ${{ vars.STAGE }}
