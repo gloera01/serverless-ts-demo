@@ -8,12 +8,12 @@ on:
     types: [opened, reopened]
     branches: [development, main]
 
-env:
+# env:
   # development: feat
   # main: prod
-  branch: ${{ github.ref_name }}
-  feature/environment-config: dev
-  # branch: ${{ env }}
+  # branch: ${{ github.ref_name }}
+  # feature/environment-config: dev
+  # stage: 
 
 jobs:
   run-tests:
@@ -21,6 +21,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
+    # environment: development
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
@@ -30,4 +31,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      run: echo Result env mapping is ${{ env[ env.branch ] }}
+      run: echo Result env mapping is ${{ vars.STAGE }}
