@@ -9,8 +9,6 @@ on:
     branches: [development, main]
 
 env:
-  development: development
-  main: production
   stage: ${{ github.base_ref == 'main' && 'production' || 'development' }}
 
 jobs:
@@ -19,7 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    environment: ${{ env.stage }}
+    # environment: ${{ env.stage }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
@@ -29,4 +27,5 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      run: echo Run Tests on -> ${{ vars.STAGE }}
+      # run: echo Run Tests on -> ${{ vars.STAGE }}
+      run: echo stage is ${{ env.stage }}
