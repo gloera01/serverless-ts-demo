@@ -50,16 +50,10 @@ serverless offline
 - Branch protection should be added (disable merge)
   - If comments are not resolved
   - Build or tests fails
-- Constraints
-  - Run tests
-    - Only on PR for branches development and main
-  - Merge feature branch and deploy
-    - Only when tests has passed and PR is approved
-- Handle multiple environments
-  - dev
-  - prod
+
+- Tests runs on PR that targets main and development branches
+- Merge is available only when comments are resolved, build/tests are ok and PR is approved by at least 1 member
 - Ignore tests folder to be deployed to AWS in order to save space
 - Configure API gateway
   - domain name
   - routes
-- Configure lambda name based on env
