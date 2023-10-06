@@ -8,17 +8,13 @@ on:
     types: [opened, reopened]
     branches: [development, main]
 
-env:
-  stage: ${{ github.base_ref == 'main' && 'production' || 'development' }}
-
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
-    environment:
-      name: ${{ env.stage }}
+    environment: ${{ github.base_ref == 'main' && 'production' || 'development' }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
@@ -28,5 +24,4 @@ jobs:
     # - run: npm ci
     - name: Run unit tests
       # run: npm run test:unit
-      # run: echo Run Tests on -> ${{ vars.STAGE }}
-      run: echo stage is ${{ env.stage }}
+      run: echo Run Tests on -> ${{ vars.STAGE }}
