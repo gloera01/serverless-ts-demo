@@ -30,4 +30,4 @@ jobs:
     - name: Run unit tests
       # run: npm run test:unit
       # run: echo Result env mapping is ${{ vars.STAGE }}
-      run: echo Env mapping is ${{ github.ref_name }}
+      run: echo Env mapping is ${{ github.base_ref }}
