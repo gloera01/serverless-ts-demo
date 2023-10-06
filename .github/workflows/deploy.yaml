@@ -3,16 +3,17 @@ name: Build and deploy to aws
 on:
   push:
     branches: [development, main]
+env:
+  stage: ${{ vars.STAGE }}
 
 jobs:
   deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
-    environment:
-      name: development
     strategy:
       matrix:
         node-version: [18.x]
+    environment: ${{ github.base_ref == 'main' && 'production' || 'development' }}
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -23,8 +24,9 @@ jobs:
     - name: Install plugins and deploy
       uses: serverless/github-action@v3.2
       with:
-        args: -c "serverless plugin install --name serverless-plugin-typescript && serverless deploy --stage development"
+        args: -c "serverless plugin install --name serverless-plugin-typescript && serverless deploy --stage $stage"
         entrypoint: /bin/sh
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        STAGE: ${{ vars.STAGE }}

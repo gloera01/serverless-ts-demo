@@ -10,13 +10,11 @@ on:
 
 jobs:
   run-tests:
-    name: Build and deploy
     runs-on: ubuntu-latest
-    environment:
-      name: development
     strategy:
       matrix:
         node-version: [18.x]
+    environment: ${{ github.base_ref == 'main' && 'production' || 'development' }}
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
