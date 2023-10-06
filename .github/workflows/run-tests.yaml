@@ -11,7 +11,7 @@ on:
 env:
   development: dev
   main: prod
-  stage: ${{env[ github.ref_name ]}} 
+  stage: ${{env[ ${{github.ref_name}} ]}} 
 
 jobs:
   run-tests:
