@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    environment: ${{ env[env.branch] }}
+    environment: ${{ env[github.base_name || 'development'] }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
