@@ -8,12 +8,10 @@ on:
     types: [opened, reopened]
     branches: [development, main]
 
-# env:
-  # development: feat
-  # main: prod
-  # branch: ${{ github.ref_name }}
-  # feature/environment-config: dev
-  # stage: 
+env:
+  development: dev
+  main: prod
+  stage: ${{env[ github.ref_name ]}} 
 
 jobs:
   run-tests:
@@ -21,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    environment: development
+    environment: ${{ env.stage }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
