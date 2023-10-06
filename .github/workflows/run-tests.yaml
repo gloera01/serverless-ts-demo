@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-    environment: ${{ env[github.base_name] || 'development' }}
+    # environment: ${{ env['development'] }}
     steps:
     # - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
@@ -30,4 +30,4 @@ jobs:
     - name: Run unit tests
       # run: npm run test:unit
       # run: echo Test if env assignation is fine. -> ${{ vars.STAGE }}
-      run: echo Test var. ${{ github.base_name || 'development' }}
+      run: echo Test var. ${{ github.base_name || 'develop' }}
