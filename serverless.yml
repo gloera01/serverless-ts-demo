@@ -1,16 +1,19 @@
-service: kiosk-pools-poc
+service: serverless-ts-demo
 frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  environment:
+    STAGE: ${opt:stage, 'dev'}
 
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
 
 functions:
-  api:
+  getDummy:
     handler: src/handlers/index.handler
     events:
       - httpApi:
