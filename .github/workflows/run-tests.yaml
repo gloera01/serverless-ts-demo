@@ -11,7 +11,8 @@ on:
 env:
   development: development
   main: production
-  # stage: ${{env[ ${{github.ref_name}} ]}} 
+  # branch: ${{github.base_name, 'development'}}
+  # stage: ${{env[ ${{github.ref_name}} ]}}
 
 jobs:
   run-tests:
@@ -30,4 +31,4 @@ jobs:
     - name: Run unit tests
       # run: npm run test:unit
       # run: echo Result env mapping is ${{ vars.STAGE }}
-      run: echo Env mapping is ${{ github.base_ref }}
+      run: echo Env mapping is ${{ github.base_ref, 'dev' }}
